@@ -54,15 +54,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Scripts\PlayScene\BallCounter.cs" />
     <Compile Include="Assets\Scripts\PlayScene\Ball.cs" />
     <Compile Include="Assets\Scripts\MenuScene\MenuUIManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PlayScene\Ball_Trajectory.cs" />
     <Compile Include="Assets\Scripts\PlayScene\Cup.cs" />
+    <Compile Include="Assets\Scripts\PlayScene\PlayUImanager.cs" />
     <Compile Include="Assets\Scripts\BootScene\BootUIManager.cs" />
     <Compile Include="Assets\Scripts\PlayScene\LevelInfomacion.cs" />
-    <Compile Include="Assets\Scripts\PlayScene\PlayUImanager.cs" />
-    <Compile Include="Assets\Scripts\PlayScene\BallCounter.cs" />
+    <Compile Include="Assets\Scripts\PlayScene\WinGameAnim.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
