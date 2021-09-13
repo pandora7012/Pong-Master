@@ -7,12 +7,14 @@ using DG.Tweening;
 public class MenuUIManager : MonoBehaviour
 {
     public Text LevelText;
-    public GameObject PlayBT; 
+    public GameObject PlayBT;
+    public Text coinText; 
 
 
     private void Start()
     {
         LevelText.text  = "Level " + PlayerPrefs.GetInt("MaxLevel").ToString();
+        coinText.text = PlayerPrefs.GetInt("Coin").ToString();
     }
 
     public void PlayButton()

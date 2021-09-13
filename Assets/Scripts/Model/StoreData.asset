@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba5cf752ec466943b4a9b00c3eba0ad, type: 3}
+  m_Name: StoreData
+  m_EditorClassIdentifier: 
+  balls:
+  - icon: {fileID: 21300000, guid: 2c8e9b7cedc5aaf4db383b987fc03f61, type: 3}
+    hadBuy: 1
+    cost: 0
+    isUsing: 1
+    ID: 1
+  - icon: {fileID: 21300000, guid: 35b2c1f3320181d4e84f07dbcc385cda, type: 3}
+    hadBuy: 0
+    cost: 100
+    isUsing: 0
+    ID: 2
+  - icon: {fileID: 21300000, guid: e9d7bf57cdb4a82439a38c9c38f2dc0e, type: 3}
+    hadBuy: 0
+    cost: 100
+    isUsing: 0
+    ID: 3
+  - icon: {fileID: 21300000, guid: 5317ae534dbae8e478c6b3671081a1d7, type: 3}
+    hadBuy: 0
+    cost: 100
+    isUsing: 0
+    ID: 4
+  - icon: {fileID: 21300000, guid: a71041dfe8fc9f24f9d0f2f79b226db6, type: 3}
+    hadBuy: 0
+    cost: 200
+    isUsing: 0
+    ID: 5
+  - icon: {fileID: 21300000, guid: a0bca74cc3af2eb4da6136acdab4fd6b, type: 3}
+    hadBuy: 0
+    cost: 200
+    isUsing: 0
+    ID: 6
+  - icon: {fileID: 21300000, guid: 880acba0426542945907b86a2d88a8c1, type: 3}
+    hadBuy: 0
+    cost: 200
+    isUsing: 0
+    ID: 7
+  - icon: {fileID: 21300000, guid: 625524202433d2b468df1a16abf63ad7, type: 3}
+    hadBuy: 0
+    cost: 300
+    isUsing: 0
+    ID: 8
+  - icon: {fileID: 21300000, guid: cd973af655a2ce441bbfea8d4d395727, type: 3}
+    hadBuy: 0
+    cost: 300
+    isUsing: 0
+    ID: 9
+  - icon: {fileID: 21300000, guid: 5f1c97b99538f2b44bed4e0c17dd7f6c, type: 3}
+    hadBuy: 0
+    cost: 500
+    isUsing: 0
+    ID: 10
+  - icon: {fileID: 21300000, guid: c6b2bca9c8360b04882015085cf44e11, type: 3}
+    hadBuy: 0
+    cost: 500
+    isUsing: 0
+    ID: 11
+  - icon: {fileID: 21300000, guid: fb565064781c44d4387b1bcf699af326, type: 3}
+    hadBuy: 0
+    cost: 500
+    isUsing: 0
+    ID: 12
+  - icon: {fileID: 21300000, guid: 57a24b0349603a343b27e33d1c1adefe, type: 3}
+    hadBuy: 0
+    cost: 500
+    isUsing: 0
+    ID: 13
+  - icon: {fileID: 21300000, guid: 3a472b386bffadf4cbaf20522ff55e3a, type: 3}
+    hadBuy: 0
+    cost: 700
+    isUsing: 0
+    ID: 14
+  - icon: {fileID: 21300000, guid: 8420e385db2197f46ad492192168af32, type: 3}
+    hadBuy: 0
+    cost: 700
+    isUsing: 0
+    ID: 15
+  - icon: {fileID: 21300000, guid: 388701e513bda9c468aea979c74ec334, type: 3}
+    hadBuy: 0
+    cost: 700
+    isUsing: 0
+    ID: 16
+  - icon: {fileID: 21300000, guid: dbbf91b5e13c6f14e83cbba3055b9c4c, type: 3}
+    hadBuy: 0
+    cost: 700
+    isUsing: 0
+    ID: 17
+  - icon: {fileID: 21300000, guid: 60a0536d8c1b5ad4db1490fceaa431be, type: 3}
+    hadBuy: 0
+    cost: 1000
+    isUsing: 0
+    ID: 18
+  cups:
+  - icon: {fileID: 21300000, guid: 5f0858de7689d774c8f4085ae29aa29b, type: 3}
+    hadBuy: 1
+    cost: 300
+    isUsing: 0
+    ID: 0
+  - icon: {fileID: 21300000, guid: dd5ac0b9cfc28a24cbf4382ef5a65a21, type: 3}
+    hadBuy: 0
+    cost: 500
+    isUsing: 0
+    ID: 1
+  - icon: {fileID: 21300000, guid: c14bb3bf51e2f134a9f18d8d04dad5cb, type: 3}
+    hadBuy: 0
+    cost: 500
+    isUsing: 0
+    ID: 2
+  - icon: {fileID: 21300000, guid: 29f110d2f93e49a478d5944fb15dd65b, type: 3}
+    hadBuy: 0
+    cost: 500
+    isUsing: 0
+    ID: 3
+  - icon: {fileID: 21300000, guid: 332360db314dcc4449ad420a8ca71e0a, type: 3}
+    hadBuy: 0
+    cost: 700
+    isUsing: 0
+    ID: 4
+  - icon: {fileID: 21300000, guid: 3b0a1fe2a1d039a4c87aad23d746698a, type: 3}
+    hadBuy: 0
+    cost: 700
+    isUsing: 0
+    ID: 5
+  - icon: {fileID: 21300000, guid: e08453f6caae72f4691b90a4888b86e8, type: 3}
+    hadBuy: 0
+    cost: 800
+    isUsing: 0
+    ID: 6
+  - icon: {fileID: 21300000, guid: 0f92d9b26ad83574faaf0e0033ca601b, type: 3}
+    hadBuy: 0
+    cost: 1000
+    isUsing: 0
+    ID: 7
+  - icon: {fileID: 21300000, guid: d4d977ee833acf14d868dc2135b5bd52, type: 3}
+    hadBuy: 0
+    cost: 1000
+    isUsing: 0
+    ID: 8

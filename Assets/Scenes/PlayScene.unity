@@ -1492,7 +1492,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 27a1f598eb329fe409c29d7c419478b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6462963d3fb864e4ab6b36726a2a33a7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1688,7 +1688,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 27a1f598eb329fe409c29d7c419478b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6462963d3fb864e4ab6b36726a2a33a7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2347,7 +2347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 27a1f598eb329fe409c29d7c419478b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6462963d3fb864e4ab6b36726a2a33a7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2931,9 +2931,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7caee73ac037c419bdcc8e4d3b75a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  star: {fileID: 21300000, guid: d6de37383e64d8a4bac1992227617baf, type: 3}
   LevelText: {fileID: 44589369}
   Target: {fileID: 1987988774}
   counter: {fileID: 399107105}
+  WinGamePopUp: {fileID: 578428571}
+  star1: {fileID: 1245536905}
+  star2: {fileID: 1615025751}
+  star3: {fileID: 1313475182}
 --- !u!1 &1987988772
 GameObject:
   m_ObjectHideFlags: 0

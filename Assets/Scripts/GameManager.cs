@@ -18,6 +18,10 @@ public class GameManager : Singleton<GameManager>
     [Header("PoolingSystem")]
     public GameObject ballPrefabs;
 
+    [Header("Sprite")]
+    public Sprite ball;
+    public Sprite cup; 
+
 
     public int ballnum
     {
