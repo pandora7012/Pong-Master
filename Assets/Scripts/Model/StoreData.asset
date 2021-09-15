@@ -107,45 +107,45 @@ MonoBehaviour:
   - icon: {fileID: 21300000, guid: 5f0858de7689d774c8f4085ae29aa29b, type: 3}
     hadBuy: 1
     cost: 300
-    isUsing: 0
-    ID: 0
+    isUsing: 1
+    ID: 1
   - icon: {fileID: 21300000, guid: dd5ac0b9cfc28a24cbf4382ef5a65a21, type: 3}
     hadBuy: 0
     cost: 500
     isUsing: 0
-    ID: 1
+    ID: 2
   - icon: {fileID: 21300000, guid: c14bb3bf51e2f134a9f18d8d04dad5cb, type: 3}
     hadBuy: 0
     cost: 500
     isUsing: 0
-    ID: 2
+    ID: 3
   - icon: {fileID: 21300000, guid: 29f110d2f93e49a478d5944fb15dd65b, type: 3}
     hadBuy: 0
     cost: 500
     isUsing: 0
-    ID: 3
+    ID: 4
   - icon: {fileID: 21300000, guid: 332360db314dcc4449ad420a8ca71e0a, type: 3}
     hadBuy: 0
     cost: 700
     isUsing: 0
-    ID: 4
+    ID: 5
   - icon: {fileID: 21300000, guid: 3b0a1fe2a1d039a4c87aad23d746698a, type: 3}
     hadBuy: 0
     cost: 700
     isUsing: 0
-    ID: 5
+    ID: 6
   - icon: {fileID: 21300000, guid: e08453f6caae72f4691b90a4888b86e8, type: 3}
     hadBuy: 0
     cost: 800
     isUsing: 0
-    ID: 6
+    ID: 7
   - icon: {fileID: 21300000, guid: 0f92d9b26ad83574faaf0e0033ca601b, type: 3}
     hadBuy: 0
     cost: 1000
     isUsing: 0
-    ID: 7
+    ID: 8
   - icon: {fileID: 21300000, guid: d4d977ee833acf14d868dc2135b5bd52, type: 3}
     hadBuy: 0
     cost: 1000
     isUsing: 0
-    ID: 8
+    ID: 9

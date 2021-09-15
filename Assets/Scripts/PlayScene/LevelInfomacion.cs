@@ -7,5 +7,8 @@ public class LevelInfomacion : MonoBehaviour
     public int numOfball;
     public int numOfTarget;
 
-    public Vector2 ballStartPos; 
+    public Vector2 ballStartPos;
+
+    public bool havePass = false;
+    public int star;
 }

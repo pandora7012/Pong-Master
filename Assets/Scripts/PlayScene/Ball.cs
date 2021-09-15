@@ -46,6 +46,7 @@ public class Ball : MonoBehaviour
 
     private void InputInfo()
     {
+        
         if (Input.GetMouseButton(0))
         {
             posMouseUp = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -79,6 +80,8 @@ public class Ball : MonoBehaviour
     
     private void OnMouseDown()
     {
+        if (GameManager.Instance.numOfTarget == 0)
+            return;
         //handle touch ball ;
         posMouseDown = cam.ScreenToWorldPoint(Input.mousePosition);
         holding = true;
@@ -92,7 +95,7 @@ public class Ball : MonoBehaviour
 
     public void ResetBall()
     {
-        
+        this.gameObject.SetActive(false);
         this.transform.localScale = new Vector3(0, 0, 1);
         this.rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
     }

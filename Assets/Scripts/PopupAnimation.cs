@@ -7,13 +7,13 @@ public class PopupAnimation : MonoBehaviour
 {
     public virtual void onOpen()
     {
-        this.transform.DOLocalMove(Vector2.zero, 1).From(new Vector2(0,3000)).SetEase(Ease.OutBack);
+        this.transform.DOLocalMove(Vector2.zero, 0.5f).From(new Vector2(0,-3300)).SetEase(Ease.OutBack);
 
     }
 
     public virtual void onClose()
     {
-        this.transform.DOLocalMove(new Vector2(0, 3000),1).SetEase(Ease.InOutCirc);
+        this.transform.DOLocalMove(new Vector2(0, -3300), 1).SetEase(Ease.InOutCirc);
     }
 
     public virtual void inMain()

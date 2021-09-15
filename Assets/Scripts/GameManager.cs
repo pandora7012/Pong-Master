@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    public  List<GameObject> BallPolling;
+    public  List<Ball> BallPolling;
 
     [Header("Level Infomacion")]
     public int numOfBall;
@@ -36,18 +36,17 @@ public class GameManager : Singleton<GameManager>
                 return;
             transform.DOScale(Vector3.one, 1).OnComplete(() =>
             {
-                BallPolling[numOfBall].SetActive(true);
+                BallPolling[numOfBall].gameObject.SetActive(true);
             }
             ); 
             
         }
     }
 
-
     protected override void Awake()
     {
         base.Awake();
-        BallPolling = new List<GameObject>(); 
+        BallPolling = new List<Ball>(); 
         PollingSystem();
         SceneLoading("MainMenu", 6);
         if (PlayerPrefs.GetInt("MaxLevel") == 0)
@@ -57,9 +56,12 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadLevel()
     {
+        SceneLoading("PlayScene",1f);
+        Debug.Log("Load");
         GameObject levelPrefab = Resources.Load("Level" + level.ToString()) as GameObject;
         if (levelPrefab == null)
             return;
+        ResetPolling();
         GetLevelInfo(levelPrefab);
         currentLevel = Instantiate(levelPrefab);
         
@@ -71,16 +73,25 @@ public class GameManager : Singleton<GameManager>
         this.numOfBall = levelInfomacion.numOfball;
         this.numOfTarget = levelInfomacion.numOfTarget;
         this.startPos = levelInfomacion.ballStartPos;
+        Debug.Log("Get");
     }
 
     private void PollingSystem()
     {
         for (int i = 0; i < 10; i++)
         {
-            GameObject ball = Instantiate(ballPrefabs, transform);
+            Ball ball = Instantiate(ballPrefabs, transform).GetComponent<Ball>();
            
-            ball.SetActive(false);
+            ball.gameObject. SetActive(false);
             BallPolling.Add(ball);
+        }
+    }
+
+    private void ResetPolling()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            BallPolling[i].ResetBall();
         }
     }
 
@@ -94,6 +105,8 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(timeWait);
         SceneManager.LoadScene(scene);
     }
+
+
 
 
 

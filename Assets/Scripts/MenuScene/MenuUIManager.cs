@@ -8,8 +8,9 @@ public class MenuUIManager : MonoBehaviour
 {
     public Text LevelText;
     public GameObject PlayBT;
-    public Text coinText; 
-
+    public Text coinText;
+    public Store storePopup;
+    public RectTransform Main; 
 
     private void Start()
     {
@@ -19,9 +20,16 @@ public class MenuUIManager : MonoBehaviour
 
     public void PlayButton()
     {
-        PlayBT.transform.DOScale(Vector3.zero, 1f).SetEase(Ease.InBack);
         GameManager.Instance.level = 1;
+        PlayBT.transform.DOScale(Vector3.zero, 1f).SetEase(Ease.InBack);
+        
         GameManager.Instance.SceneLoading("PlayScene", 1f);
         
+    }
+
+    public void StoreButton()
+    {
+        storePopup.onOpen();
+       // Main.gameObject.SetActive(false);
     }
 }

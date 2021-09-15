@@ -26,8 +26,6 @@ public class PlayUImanager : MonoBehaviour
 
     void Start()
     {
-        
-        GameManager.Instance.LoadLevel();
         counter.remain = GameManager.Instance.numOfBall;
         LevelText.text = "Level " + GameManager.Instance.level.ToString();
         firstNum = GameManager.Instance.numOfBall;
@@ -46,6 +44,8 @@ public class PlayUImanager : MonoBehaviour
         counter.remain = GameManager.Instance.numOfBall;
     }
 
+
+    #region WinPopUp
     private void WinHandle()
     {
         if (Target.text == "0")
@@ -58,6 +58,15 @@ public class PlayUImanager : MonoBehaviour
         }
     }
 
+    public void NextLevel()
+    {
+        GameManager.Instance.level++; 
+        Destroy(GameManager.Instance.currentLevel);
+        GameManager.Instance.LoadLevel();
+      
+    }
+
+    #endregion 
     private void StarHandle()
     {
         int remain = counter.remain;
@@ -76,6 +85,8 @@ public class PlayUImanager : MonoBehaviour
     {
 
     }
+
+    
 
     
 }
