@@ -823,6 +823,9 @@ MonoBehaviour:
   level: 0
   currentLevel: {fileID: 0}
   ballPrefabs: {fileID: 7370940572715863202, guid: 59de513b6eaa5b84d8004d2fb367d719, type: 3}
+  ball: {fileID: 0}
+  cup: {fileID: 0}
+  storedata: {fileID: 11400000, guid: 4ec34455cabdf814cbe5405b1690f93b, type: 2}
 --- !u!1 &1123848634
 GameObject:
   m_ObjectHideFlags: 0

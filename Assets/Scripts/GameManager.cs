@@ -20,9 +20,11 @@ public class GameManager : Singleton<GameManager>
 
     [Header("Sprite")]
     public Sprite ball;
-    public Sprite cup; 
+    public Sprite cup;
 
 
+    [Header("Model")]
+    public StoreData storedata;
     public int ballnum
     {
         get
@@ -51,20 +53,17 @@ public class GameManager : Singleton<GameManager>
         SceneLoading("MainMenu", 6);
         if (PlayerPrefs.GetInt("MaxLevel") == 0)
             PlayerPrefs.SetInt("MaxLevel", 1);
-        
+        PlayerPrefs.SetInt("BallSkin", PlayerPrefs.GetInt("BallSkin") == 0 ? 1 : PlayerPrefs.GetInt("BallSkin"));
     }
 
     public void LoadLevel()
     {
-        SceneLoading("PlayScene",1f);
-        Debug.Log("Load");
         GameObject levelPrefab = Resources.Load("Level" + level.ToString()) as GameObject;
         if (levelPrefab == null)
             return;
         ResetPolling();
         GetLevelInfo(levelPrefab);
-        currentLevel = Instantiate(levelPrefab);
-        
+        currentLevel = Instantiate(levelPrefab);   
     }
 
     private void GetLevelInfo(GameObject level_)
@@ -73,7 +72,6 @@ public class GameManager : Singleton<GameManager>
         this.numOfBall = levelInfomacion.numOfball;
         this.numOfTarget = levelInfomacion.numOfTarget;
         this.startPos = levelInfomacion.ballStartPos;
-        Debug.Log("Get");
     }
 
     private void PollingSystem()

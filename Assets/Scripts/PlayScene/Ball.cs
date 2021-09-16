@@ -17,7 +17,9 @@ public class Ball : MonoBehaviour
     public int force = 500;
 
     [SerializeField]
-    private GameObject Trajectory; 
+    private GameObject Trajectory;
+
+    public SpriteRenderer skin; 
     
     public bool holding = false;
     public bool hadCollide = false; 
@@ -41,6 +43,7 @@ public class Ball : MonoBehaviour
 
     private void Set()
     {
+        skin.sprite = GameManager.Instance.storedata.balls[PlayerPrefs.GetInt("BallSkin")-1].icon;
         transform.eulerAngles = Vector3.zero;
     }
 
@@ -56,7 +59,6 @@ public class Ball : MonoBehaviour
         {
             
             CaculateDirection();
-            Debug.Log(direction);
             if (direction.x < 0.3 && direction.y < 0.3)
             {
                 holding = false;
@@ -110,4 +112,6 @@ public class Ball : MonoBehaviour
             GameManager.Instance.numOfTarget--;
         }
     }
+
+
 }

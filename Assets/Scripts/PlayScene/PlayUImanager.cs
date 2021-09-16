@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class PlayUImanager : MonoBehaviour
@@ -22,6 +23,7 @@ public class PlayUImanager : MonoBehaviour
     public Image star3;
     private int firstNum;
     private int targetNum;
+    public Text Textlevel;
    
 
     void Start()
@@ -30,6 +32,7 @@ public class PlayUImanager : MonoBehaviour
         LevelText.text = "Level " + GameManager.Instance.level.ToString();
         firstNum = GameManager.Instance.numOfBall;
         targetNum = GameManager.Instance.numOfTarget;
+        GameManager.Instance.LoadLevel();
     }
 
     private void Update()
@@ -50,6 +53,7 @@ public class PlayUImanager : MonoBehaviour
     {
         if (Target.text == "0")
         {
+            Textlevel.text = "Level " + GameManager.Instance.level.ToString();
             StarHandle();
             WinGamePopUp.gameObject.SetActive(true);
             Target.gameObject.SetActive(false);
@@ -62,8 +66,14 @@ public class PlayUImanager : MonoBehaviour
     {
         GameManager.Instance.level++; 
         Destroy(GameManager.Instance.currentLevel);
-        GameManager.Instance.LoadLevel();
+        SceneManager.LoadScene("PlayScene");
       
+    }
+
+    public void Home()
+    {
+        Destroy(GameManager.Instance.currentLevel);
+        SceneManager.LoadScene("MainMenu");
     }
 
     #endregion 

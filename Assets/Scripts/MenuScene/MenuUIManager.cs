@@ -22,7 +22,6 @@ public class MenuUIManager : MonoBehaviour
     {
         GameManager.Instance.level = 1;
         PlayBT.transform.DOScale(Vector3.zero, 1f).SetEase(Ease.InBack);
-        
         GameManager.Instance.SceneLoading("PlayScene", 1f);
         
     }

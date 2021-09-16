@@ -233,4 +233,6 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   force: 500
   Trajectory: {fileID: 7370940571980413326}
+  skin: {fileID: 7370940572661270505}
   holding: 0
+  hadCollide: 0
