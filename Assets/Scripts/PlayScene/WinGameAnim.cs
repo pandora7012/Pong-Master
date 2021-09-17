@@ -20,6 +20,7 @@ public class WinGameAnim : MonoBehaviour
 
     public void OnEnable()
     {
+        PlayerPrefs.SetInt("MaxLevel", PlayerPrefs.GetInt("MaxLevel") + 1);
         Sequence sq = DOTween.Sequence();
         sq.Append(Popup.transform.DOScale(new Vector2(2, 2), 0.25f).From(Vector2.zero));
         sq.Append(star1.transform.DOScale(new Vector2(2, 2), 0.75f).From(Vector2.zero).SetEase(Ease.InOutBack)); 
@@ -33,7 +34,5 @@ public class WinGameAnim : MonoBehaviour
         sq.Append(Coin.transform.DOScale(new Vector2(2, 2), 1f));
         sq.Append(Coin.transform.DOLocalMove(new Vector2(-60, -500), 0.5f));
         sq.Join(Coin.transform.DOScale(new Vector2(0, 0),0.5f)); 
-     
-        
     }
 }

@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 7963514391453272946}
   - component: {fileID: 7963514391453272944}
   - component: {fileID: 7963514391453272947}
-  - component: {fileID: 7963514391453272945}
+  - component: {fileID: 2168427326203612218}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -170,8 +170,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: c2a8758299d950f4290637ebec052267, type: 3}
   - {fileID: 21300000, guid: c2a8758299d950f4290637ebec052267, type: 3}
   m_LocalAABB:
-    m_Center: {x: 0.99613667, y: -0.41521022, z: -0.00005}
-    m_Extent: {x: 1.2753339, y: 0.41521022, z: 0.00005}
+    m_Center: {x: 0.6809406, y: 0.30703974, z: -0.0001}
+    m_Extent: {x: 0.9605739, y: 1.1392012, z: 0.0001}
 --- !u!114 &7963514391453272947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Spline:
     m_IsOpenEnded: 1
     m_ControlPoints:
-    - position: {x: 1.8611302, y: -0.50317407, z: 0}
+    - position: {x: 1.3162066, y: 1.0359967, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -197,6 +197,16 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
+    - position: {x: 1.3150403, y: -0.50776005, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 2
     - position: {x: 0.151144, y: -0.5049689, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
@@ -214,17 +224,17 @@ MonoBehaviour:
   m_AdaptiveUV: 1
   m_StretchUV: 0
   m_WorldSpaceUV: 0
-  m_CornerAngleThreshold: 30
+  m_CornerAngleThreshold: 90
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
   m_GeometryCached: 0
   m_UTess2D: 0
---- !u!61 &7963514391453272945
-BoxCollider2D:
+--- !u!60 &2168427326203612218
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -236,7 +246,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.99613667, y: -0.5048872}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -246,9 +256,15 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.5506678, y: 0.6510664}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.2809893, y: -0.18769403}
+      - {x: 0.98747927, y: -0.18643135}
+      - {x: 0.9907154, y: 1.4639627}
+      - {x: 1.639567, y: 1.4498019}
+      - {x: 1.649545, y: -0.78963566}
+      - {x: 1.6303322, y: -0.8178188}
+      - {x: -0.28197363, y: -0.8229395}
 --- !u!1 &7963514392812007990
 GameObject:
   m_ObjectHideFlags: 0

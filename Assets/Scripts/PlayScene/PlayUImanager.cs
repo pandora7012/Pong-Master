@@ -24,6 +24,9 @@ public class PlayUImanager : MonoBehaviour
     private int firstNum;
     private int targetNum;
     public Text Textlevel;
+
+    [Header("Lose")]
+    public RectTransform LosePopup;
    
 
     void Start()
@@ -76,7 +79,13 @@ public class PlayUImanager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    #endregion 
+    #endregion
+
+
+    #region Lose
+
+
+    #endregion
     private void StarHandle()
     {
         int remain = counter.remain;
@@ -86,14 +95,10 @@ public class PlayUImanager : MonoBehaviour
             star3.sprite = star; 
     }
 
-    public void PauseButton()
-    {
-
-    }
-
     public void RestartButton()
     {
-
+        Destroy(GameManager.Instance.currentLevel);
+        SceneManager.LoadScene("PlayScene");
     }
 
     
