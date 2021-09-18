@@ -61,7 +61,6 @@ public class Store : PopupAnimation
             e.element.hadBuy = i.hadBuy;
             e.element.icon = i.icon;
             e.element.ID = i.ID;
-            e.element.isUsing = i.isUsing;
             e.isBall = true;
             e.SetData();
             balls.Add(e); 
@@ -74,7 +73,6 @@ public class Store : PopupAnimation
             e.element.hadBuy = i.hadBuy;
             e.element.icon = i.icon;
             e.element.ID = i.ID;
-            e.element.isUsing = i.isUsing;
             e.isBall = false; 
             e.SetData();
             cups.Add(e);
@@ -89,7 +87,8 @@ public class Store : PopupAnimation
         ballBT.color = Color.cyan;
         cupBT.color = Color.white;
         holdID = 1;
-        state = 1; 
+        state = 1;
+        AudioManager.Instance.Play("Click");
     }
 
     public void CupButton()
@@ -99,31 +98,41 @@ public class Store : PopupAnimation
         ballBT.color = Color.white;
         cupBT.color = Color.cyan;
         holdID = 1;
-        state = 2; 
+        state = 2;
+        AudioManager.Instance.Play("Click");
     }
 
     public void BuyButton()
     {
-        if (state == 1 && PlayerPrefs.GetInt("Coin") >= data.balls[holdID - 1].cost)
+        if (state == 1)
         {
-            data.balls[holdID - 1].hadBuy = true;
+            if (PlayerPrefs.GetInt("Coin") >= data.balls[holdID - 1].cost && !data.balls[holdID - 1].hadBuy)
+                data.balls[holdID - 1].hadBuy = true;
+            else if (data.balls[holdID - 1].hadBuy)
+            {
+                PlayerPrefs.SetInt("BallSkin", holdID);
+            }
         }
-        else if (state == 2 && PlayerPrefs.GetInt("Coin") >= data.cups[holdID - 1].cost)
+        else if (state == 2)
         {
-            data.cups[holdID - 1].hadBuy = true;
+            if (PlayerPrefs.GetInt("Coin") >= data.cups[holdID - 1].cost && !data.cups[holdID - 1].hadBuy)
+                data.cups[holdID - 1].hadBuy = true;
+            else if (data.cups[holdID - 1].hadBuy)
+                PlayerPrefs.SetInt("CupSkin", holdID); 
         }
 
         else Debug.Log("Not enough noney");
-
+        AudioManager.Instance.Play("Coin");
     }
 
     private void UIUpdate()
     {
-        if (state == 1)
-            buyText.text = data.balls[holdID - 1].cost.ToString(); 
-        else
+        if (state == 1 && !data.balls[holdID - 1].hadBuy)
+            buyText.text = data.balls[holdID - 1].cost.ToString();
+        else if (state == 2 && !data.cups[holdID - 1].hadBuy)
             buyText.text = data.cups[holdID - 1].cost.ToString();
-
+        else
+            buyText.text = "Equip";
     }
 
 

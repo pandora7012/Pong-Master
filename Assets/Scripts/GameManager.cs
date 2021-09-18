@@ -47,6 +47,8 @@ public class GameManager : Singleton<GameManager>
 
     protected override void Awake()
     {
+
+        PlayerPrefs.SetInt("MaxLevel", 1);
         base.Awake();
         BallPolling = new List<Ball>(); 
         PollingSystem();
@@ -54,6 +56,7 @@ public class GameManager : Singleton<GameManager>
         if (PlayerPrefs.GetInt("MaxLevel") == 0)
             PlayerPrefs.SetInt("MaxLevel", 1);
         PlayerPrefs.SetInt("BallSkin", PlayerPrefs.GetInt("BallSkin") == 0 ? 1 : PlayerPrefs.GetInt("BallSkin"));
+        PlayerPrefs.SetInt("CupSkin", PlayerPrefs.GetInt("CupSkin") == 0 ? 1 : PlayerPrefs.GetInt("CupSkin"));
     }
 
     public void LoadLevel()
@@ -85,7 +88,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    private void ResetPolling()
+    public void ResetPolling()
     {
         for (int i = 0; i < 10; i++)
         {

@@ -43,7 +43,7 @@ public class Ball : MonoBehaviour
 
     private void Set()
     {
-        skin.sprite = GameManager.Instance.storedata.balls[PlayerPrefs.GetInt("BallSkin")-1].icon;
+        skin.sprite = GameManager.Instance.storedata.balls[PlayerPrefs.GetInt("BallSkin")].icon;
         transform.eulerAngles = Vector3.zero;
     }
 
@@ -102,6 +102,8 @@ public class Ball : MonoBehaviour
         this.rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
     }
 
+    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "PassArea" && !hadCollide)
@@ -110,6 +112,7 @@ public class Ball : MonoBehaviour
             transform.DOScale(Vector3.zero, 0.5f);
             hadCollide = true; 
             GameManager.Instance.numOfTarget--;
+            AudioManager.Instance.Play("BallColl");
         }
     }
 
