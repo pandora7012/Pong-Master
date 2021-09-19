@@ -7,7 +7,6 @@ public class BallCounter : MonoBehaviour
     public GameObject[] balls;
 
     public int BallRemain;
-
     public int remain
     {
         get
@@ -26,9 +25,5 @@ public class BallCounter : MonoBehaviour
             }
         }
     }
-
-   
-
-
 
 }

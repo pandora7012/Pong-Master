@@ -48,7 +48,7 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
 
-        PlayerPrefs.SetInt("MaxLevel", 1);
+      //  PlayerPrefs.SetInt("MaxLevel", 1);
         base.Awake();
         BallPolling = new List<Ball>(); 
         PollingSystem();
@@ -106,9 +106,6 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(timeWait);
         SceneManager.LoadScene(scene);
     }
-
-
-
 
 
 }

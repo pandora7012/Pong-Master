@@ -35,6 +35,7 @@ public class PlayUImanager : MonoBehaviour
 
     private bool musicPlay; 
 
+
     void Start()
     {
         musicPlay = false;
@@ -50,19 +51,40 @@ public class PlayUImanager : MonoBehaviour
         remain  = counter.remain;
     }
 
-    private void Update()
+
+
+    private void OnEnable()
     {
-        InGameUI();
-        WinHandle();
-        LoseHandle();
+        GameMaster.NewTaskComplete += UIUpdate;
+        GameMaster.Win += WinHandle;
+        GameMaster.Lose += LoseHandle; 
+
     }
 
-    private void InGameUI()
+
+    
+
+    private void OnDisable()
+    {
+        GameMaster.NewTaskComplete -= UIUpdate;
+        GameMaster.Win -= WinHandle;
+        GameMaster.Lose -= LoseHandle;
+    }
+
+    private void Update()
+    {
+       // InGameUI();
+        /*WinHandle();
+        LoseHandle();*/
+    }
+
+    private void UIUpdate()
     {
         Target.text = GameManager.Instance.numOfTarget.ToString();
         counter.remain = GameManager.Instance.numOfBall;
     }
-
+    
+    
 
     #region WinPopUp
     private void WinHandle()
@@ -72,8 +94,7 @@ public class PlayUImanager : MonoBehaviour
             if (!musicPlay)
             {
                 musicPlay = true;
-                AudioManager.Instance.Play("Win");
-                
+                AudioManager.Instance.Play("Win");      
             }
             Textlevel.text = "Level " + GameManager.Instance.level.ToString();
             StarHandle();
@@ -109,13 +130,13 @@ public class PlayUImanager : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
         
-        if (coin < temp)
+        while (coin < temp)
         {
             AudioManager.Instance.Play("Coin");
-            coin += Time.deltaTime*30;
-            currentCoin.text = ((int)coin).ToString(); 
+            coin += Time.deltaTime *30 ;
+            currentCoin.text = ((int)coin).ToString();
+            yield return null;
         }
-        
     }
 
     #endregion
@@ -149,8 +170,7 @@ public class PlayUImanager : MonoBehaviour
     #endregion
     private void StarHandle()
     {
-        
-        if (firstNum - remain - targetNum >= 2)
+        if (firstNum -  1  >= 2)
             star2.sprite = star;
         if (firstNum - remain - targetNum >= 1)
             star3.sprite = star; 
@@ -161,7 +181,6 @@ public class PlayUImanager : MonoBehaviour
         Destroy(GameManager.Instance.currentLevel);
         SceneManager.LoadScene("PlayScene");
         AudioManager.Instance.Play("Click");
-        
     }
 
     

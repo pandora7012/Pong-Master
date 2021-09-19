@@ -65,11 +65,12 @@
     <Compile Include="Assets\Scripts\MenuScene\Store.cs" />
     <Compile Include="Assets\Scripts\PlayScene\WinGameAnim.cs" />
     <Compile Include="Assets\Scripts\PlayScene\PlayUImanager.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\BootScene\BootUIManager.cs" />
     <Compile Include="Assets\Scripts\MenuScene\StoreElements.cs" />
     <Compile Include="Assets\Scripts\MenuScene\StoreData.cs" />
     <Compile Include="Assets\Scripts\PlayScene\LevelInfomacion.cs" />
-    <Compile Include="Assets\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\GameMaster.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

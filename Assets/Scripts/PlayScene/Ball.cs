@@ -57,7 +57,6 @@ public class Ball : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
-            
             CaculateDirection();
             if (direction.x < 0.3 && direction.y < 0.3)
             {
@@ -79,16 +78,7 @@ public class Ball : MonoBehaviour
         this.rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         rigidbody2D.gravityScale = 2; 
     }
-    
-    private void OnMouseDown()
-    {
-        if (GameManager.Instance.numOfTarget == 0)
-            return;
-        //handle touch ball ;
-        posMouseDown = cam.ScreenToWorldPoint(Input.mousePosition);
-        holding = true;
-        Trajectory.SetActive(true);
-    }
+   
 
     private void CaculateDirection()
     {
@@ -102,7 +92,18 @@ public class Ball : MonoBehaviour
         this.rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
     }
 
-    
+    private void OnMouseDown()
+    {
+        if (true)
+        {
+            if (GameManager.Instance.numOfTarget == 0)
+                return;
+            //handle touch ball ;
+            posMouseDown = cam.ScreenToWorldPoint(Input.mousePosition);
+            holding = true;
+            Trajectory.SetActive(true);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -113,8 +114,10 @@ public class Ball : MonoBehaviour
             hadCollide = true; 
             GameManager.Instance.numOfTarget--;
             AudioManager.Instance.Play("BallColl");
+            GameMaster.NewTaskComplete?.Invoke();
+            GameMaster.Win?.Invoke();
+            GameMaster.Lose?.Invoke();
         }
     }
-
 
 }

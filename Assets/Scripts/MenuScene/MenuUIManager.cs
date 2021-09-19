@@ -26,13 +26,13 @@ public class MenuUIManager : MonoBehaviour
 
     public void PlayButton()
     {
+        PlayerPrefs.SetInt("MaxLevel", 2);
         AudioManager.Instance.Play("Click");
-
         GameManager.Instance.level = PlayerPrefs.GetInt("MaxLevel");
         PlayBT.transform.DOScale(Vector3.zero, 1f).SetEase(Ease.InBack);
         GameManager.Instance.SceneLoading("PlayScene", 1f);
-        
     }
+
 
     public void StoreButton()
     {

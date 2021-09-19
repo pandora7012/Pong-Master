@@ -14,7 +14,7 @@ public class BootUIManager : MonoBehaviour
 
     void Start()
     {
-        Loading.transform.DOLocalMoveX(0, 6).SetEase(Ease.InOutQuint);
+        Loading.transform.DOLocalMoveX(0, 3).SetEase(Ease.InOutQuint);
         
 
         Sequence sq = DOTween.Sequence();
@@ -22,8 +22,5 @@ public class BootUIManager : MonoBehaviour
         sq.Append(pong.transform.DOLocalMoveY(800, 1).SetEase(Ease.OutQuint))
             .Append(pong.transform.DOLocalMoveY(630, 1).SetEase(Ease.InQuint));
         //sq.WaitForKill(true);
-
-
-
     }
 }

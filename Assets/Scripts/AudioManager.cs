@@ -36,7 +36,6 @@ public class AudioManager : Singleton<AudioManager>
                 s.audioSource.Stop();
         }
     }
-
 }
 
 [System.Serializable]

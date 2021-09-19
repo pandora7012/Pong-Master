@@ -26,7 +26,7 @@ public class Store : PopupAnimation
     private void Start()
     {
         InitBallStore();
-        holdID = 1;
+        holdID = PlayerPrefs.GetInt("BallSkin");
         state = 1; 
     }
 
@@ -86,7 +86,7 @@ public class Store : PopupAnimation
         cupView.gameObject.SetActive(false);
         ballBT.color = Color.cyan;
         cupBT.color = Color.white;
-        holdID = 1;
+        holdID = PlayerPrefs.GetInt("BallSkin");
         state = 1;
         AudioManager.Instance.Play("Click");
     }
@@ -97,7 +97,7 @@ public class Store : PopupAnimation
         cupView.gameObject.SetActive(true);
         ballBT.color = Color.white;
         cupBT.color = Color.cyan;
-        holdID = 1;
+        holdID = PlayerPrefs.GetInt("CupSkin");
         state = 2;
         AudioManager.Instance.Play("Click");
     }
