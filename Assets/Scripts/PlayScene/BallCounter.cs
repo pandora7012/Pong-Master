@@ -7,6 +7,11 @@ public class BallCounter : MonoBehaviour
     public GameObject[] balls;
 
     public int BallRemain;
+
+    public void Start()
+    {
+        GameMaster.NewTaskComplete?.Invoke();
+    }
     public int remain
     {
         get

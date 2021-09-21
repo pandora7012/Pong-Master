@@ -14,6 +14,7 @@ public class GameManager : Singleton<GameManager>
     public Vector2 startPos;
     public int level;
     public GameObject currentLevel;
+    public bool isStar; 
 
     [Header("PoolingSystem")]
     public GameObject ballPrefabs;
@@ -25,29 +26,9 @@ public class GameManager : Singleton<GameManager>
 
     [Header("Model")]
     public StoreData storedata;
-    public int ballnum
-    {
-        get
-        {
-            return numOfBall;
-        }
-        set
-        {
-            numOfBall = value;
-            if (numOfBall < 0)
-                return;
-            transform.DOScale(Vector3.one, 1).OnComplete(() =>
-            {
-                BallPolling[numOfBall].gameObject.SetActive(true);
-            }
-            ); 
-            
-        }
-    }
 
     protected override void Awake()
     {
-
       //  PlayerPrefs.SetInt("MaxLevel", 1);
         base.Awake();
         BallPolling = new List<Ball>(); 
@@ -58,6 +39,7 @@ public class GameManager : Singleton<GameManager>
         PlayerPrefs.SetInt("BallSkin", PlayerPrefs.GetInt("BallSkin") == 0 ? 1 : PlayerPrefs.GetInt("BallSkin"));
         PlayerPrefs.SetInt("CupSkin", PlayerPrefs.GetInt("CupSkin") == 0 ? 1 : PlayerPrefs.GetInt("CupSkin"));
     }
+
 
     public void LoadLevel()
     {
@@ -75,6 +57,7 @@ public class GameManager : Singleton<GameManager>
         this.numOfBall = levelInfomacion.numOfball;
         this.numOfTarget = levelInfomacion.numOfTarget;
         this.startPos = levelInfomacion.ballStartPos;
+        isStar = levelInfomacion.star; 
     }
 
     private void PollingSystem()
@@ -90,6 +73,7 @@ public class GameManager : Singleton<GameManager>
 
     public void ResetPolling()
     {
+        
         for (int i = 0; i < 10; i++)
         {
             BallPolling[i].ResetBall();
@@ -107,5 +91,10 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(scene);
     }
 
-
+    public void InitBall()
+    {
+        Debug.Log("init");
+        numOfBall--;
+        BallPolling[numOfBall].gameObject.SetActive(true);
+    }
 }

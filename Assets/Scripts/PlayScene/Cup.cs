@@ -8,7 +8,7 @@ public class Cup : MonoBehaviour
 
     private void Awake()
     {
-        sprite.sprite = GameManager.Instance.storedata.cups[PlayerPrefs.GetInt("CupSkin")].icon; 
+        sprite.sprite = GameManager.Instance.storedata.cups[PlayerPrefs.GetInt("CupSkin")-1].icon; 
     }
 
 }

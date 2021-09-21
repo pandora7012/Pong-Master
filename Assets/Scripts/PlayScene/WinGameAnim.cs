@@ -23,9 +23,9 @@ public class WinGameAnim : MonoBehaviour
         PlayerPrefs.SetInt("MaxLevel", PlayerPrefs.GetInt("MaxLevel") + 1);
         Sequence sq = DOTween.Sequence();
         sq.Append(Popup.transform.DOScale(new Vector2(2, 2), 0.25f).From(Vector2.zero));
-        sq.Append(star1.transform.DOScale(new Vector2(2, 2), 0.75f).From(Vector2.zero).SetEase(Ease.InOutBack)); 
-        sq.Append(star2.transform.DOScale(new Vector2(2, 2), 0.75f).From(Vector2.zero).SetEase(Ease.InOutBack)); 
-        sq.Append(star3.transform.DOScale(new Vector2(2, 2), 0.75f).From(Vector2.zero).SetEase(Ease.InOutBack));
+        sq.Append(star1.transform.DOScale(new Vector2(2, 2), 0.25f).From(Vector2.zero).SetEase(Ease.InOutBack)); 
+        sq.Append(star2.transform.DOScale(new Vector2(2, 2), 0.25f).From(Vector2.zero).SetEase(Ease.InOutBack)); 
+        sq.Append(star3.transform.DOScale(new Vector2(2, 2), 0.25f).From(Vector2.zero).SetEase(Ease.InOutBack));
         sq.Append(currentCoin.transform.DOLocalMove(new Vector2(0, -650), 0.25f).From(new Vector2(1400, -650)));
         sq.Append(nextButton.transform.DOLocalMove(new Vector2(215, -1100), 0.25f).From(new Vector2(1400, -1100)));
         sq.Join(homeButton. transform.DOLocalMove(new Vector2(-320, -1100), 0.25f).From(new Vector2(1400, -1100)));

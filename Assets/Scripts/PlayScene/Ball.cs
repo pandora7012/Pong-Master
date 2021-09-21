@@ -19,57 +19,68 @@ public class Ball : MonoBehaviour
     [SerializeField]
     private GameObject Trajectory;
 
-    public SpriteRenderer skin; 
-    
-    public bool holding = false;
-    public bool hadCollide = false; 
+    public SpriteRenderer skin;
+
+    private bool hadCollide;
+    [SerializeField]
+    private bool played; 
+
 
 
     void Update()
     {
-        if (!holding)
-            return;
         InputInfo();
     }
 
     private void OnEnable()
     {
+        GameMaster.NewTaskComplete?.Invoke();
         transform.position = GameManager.Instance.startPos;
         transform.DOScale(Vector3.one, 0.5f).From(Vector3.zero);
         cam = Camera.main;
         Trajectory.SetActive(false);
         Set();
+        played = false;
     }
 
     private void Set()
     {
         skin.sprite = GameManager.Instance.storedata.balls[PlayerPrefs.GetInt("BallSkin")].icon;
         transform.eulerAngles = Vector3.zero;
+        hadCollide = false; 
     }
 
     private void InputInfo()
     {
-        
+        if (Input.GetMouseButtonDown(0) && !played)
+        {
+            
+            if (GameManager.Instance.numOfTarget == 0)
+                return;
+            //handle touch ball ;
+            posMouseDown = cam.ScreenToWorldPoint(Input.mousePosition);
+            Trajectory.SetActive(true);
+        }
         if (Input.GetMouseButton(0))
         {
             posMouseUp = cam.ScreenToWorldPoint(Input.mousePosition);
             CaculateDirection();
         }
-        if (Input.GetMouseButtonUp(0))
+
+        if (Input.GetMouseButtonUp(0) && !played)
         {
+            Trajectory.SetActive(false);
+            GameMaster.Lose?.Invoke();
             CaculateDirection();
             if (direction.x < 0.3 && direction.y < 0.3)
             {
-                holding = false;
-                Trajectory.SetActive(false);
                 return;
             }
+            played = true;
             setDynamic();
             // Debug.Log(direction);
             rigidbody2D.AddForce( direction * force );
-            holding = false;
-            Trajectory.SetActive(false);
-            GameManager.Instance.ballnum--;
+            GameManager.Instance.InitBall();
         }
     }
 
@@ -92,31 +103,25 @@ public class Ball : MonoBehaviour
         this.rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
     }
 
-    private void OnMouseDown()
-    {
-        if (true)
-        {
-            if (GameManager.Instance.numOfTarget == 0)
-                return;
-            //handle touch ball ;
-            posMouseDown = cam.ScreenToWorldPoint(Input.mousePosition);
-            holding = true;
-            Trajectory.SetActive(true);
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "PassArea" && !hadCollide)
         {
-            collision.transform.parent.transform.DOScale(Vector3.zero,1f).SetEase(Ease.InOutBack);
-            transform.DOScale(Vector3.zero, 0.5f);
-            hadCollide = true; 
-            GameManager.Instance.numOfTarget--;
             AudioManager.Instance.Play("BallColl");
+            collision.transform.parent.transform.DOScale(Vector3.zero,1f).SetEase(Ease.InOutBack);
+            Destroy(collision);
+            transform.DOScale(Vector3.zero, 0.5f);
+            GameManager.Instance.numOfTarget--;
             GameMaster.NewTaskComplete?.Invoke();
             GameMaster.Win?.Invoke();
-            GameMaster.Lose?.Invoke();
+            ResetBall();
+        }
+
+        if (collision.CompareTag("DmgArea"))
+        {
+            transform.DOScale(Vector2.zero, 0.1f);
+            ResetBall();
         }
     }
 

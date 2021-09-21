@@ -9,12 +9,14 @@ public class PlayUImanager : MonoBehaviour
 {
 
     [Header("Asset")]
-    public Sprite star; 
+    public Sprite star;
+    public Sprite targetStar;
 
     [Header("InGameUI")]  
     public Text LevelText;
     public Text Target;
     public BallCounter counter;
+    public Image kindTarget;
 
     [Header("WinPopUp")]
     public RectTransform WinGamePopUp;
@@ -22,7 +24,6 @@ public class PlayUImanager : MonoBehaviour
     public Image star2;
     public Image star3;
     private int firstNum;
-    private int targetNum;
     public Text Textlevel;
     public Text currentCoin;
     public float coin;
@@ -31,38 +32,30 @@ public class PlayUImanager : MonoBehaviour
 
     [Header("Lose")]
     public RectTransform LosePopup;
-    public bool LoseTrigger;
+
+    public RectTransform pauseBT; 
 
     private bool musicPlay; 
 
 
-    void Start()
+    void Awake()
     {
         musicPlay = false;
-        counter.remain = GameManager.Instance.numOfBall;
         LevelText.text = "Level " + GameManager.Instance.level.ToString();
-        firstNum = GameManager.Instance.numOfBall;
-        targetNum = GameManager.Instance.numOfTarget;
         GameManager.Instance.LoadLevel();
-        LoseTrigger = false;
+        firstNum = GameManager.Instance.numOfBall;
         coin = PlayerPrefs.GetInt("Coin");
         currentCoin.text = coin.ToString();
         temp =  coin + 20;
         remain  = counter.remain;
     }
 
-
-
     private void OnEnable()
     {
         GameMaster.NewTaskComplete += UIUpdate;
         GameMaster.Win += WinHandle;
         GameMaster.Lose += LoseHandle; 
-
     }
-
-
-    
 
     private void OnDisable()
     {
@@ -71,15 +64,13 @@ public class PlayUImanager : MonoBehaviour
         GameMaster.Lose -= LoseHandle;
     }
 
-    private void Update()
-    {
-       // InGameUI();
-        /*WinHandle();
-        LoseHandle();*/
-    }
 
     private void UIUpdate()
     {
+        if (GameManager.Instance.isStar)
+            kindTarget.sprite = targetStar;
+        counter.remain = GameManager.Instance.numOfBall;
+        remain = counter.remain;
         Target.text = GameManager.Instance.numOfTarget.ToString();
         counter.remain = GameManager.Instance.numOfBall;
     }
@@ -91,10 +82,12 @@ public class PlayUImanager : MonoBehaviour
     {
         if (Target.text == "0")
         {
+            GameManager.Instance.ResetPolling();
+            GameMaster.Lose -= LoseHandle;
             if (!musicPlay)
             {
                 musicPlay = true;
-                AudioManager.Instance.Play("Win");      
+                AudioManager.Instance.Play("Win");
             }
             Textlevel.text = "Level " + GameManager.Instance.level.ToString();
             StarHandle();
@@ -146,34 +139,42 @@ public class PlayUImanager : MonoBehaviour
 
     private void LoseHandle()
     {
+        
         if (Target.text != "0" && counter.remain == 0)
         {
             StartCoroutine("countLose");
-        }
-        if (LoseTrigger)
-            LosePopup.gameObject.SetActive(true);
-        
+        }        
     }
 
     private IEnumerator countLose()
     {
-        yield return new WaitForSeconds(10);
-        LoseTrigger = true;
+        yield return new WaitForSeconds(4);
         if (!musicPlay)
         {
             musicPlay = true;
             AudioManager.Instance.Play("Lose");
-         //   AudioManager.Instance.Stop("Background");
+            LosePopup.gameObject.SetActive(true);
         }
     }
 
     #endregion
     private void StarHandle()
     {
-        if (firstNum -  1  >= 2)
+        int a = 3;
+        if (1f * remain / firstNum <= 0.6)
+        {
+            star3.sprite = star;
+            a--;
+        }
+        if (1f * remain / firstNum <= 0.3)
+        {
             star2.sprite = star;
-        if (firstNum - remain - targetNum >= 1)
-            star3.sprite = star; 
+            a--;
+        }
+        string s = "Level" + GameManager.Instance.level.ToString();
+
+        if (PlayerPrefs.GetInt(s) < a)
+            PlayerPrefs.SetInt(s, a);
     }
 
     public void RestartButton()
@@ -183,7 +184,27 @@ public class PlayUImanager : MonoBehaviour
         AudioManager.Instance.Play("Click");
     }
 
-    
 
-    
+    #region Pause 
+    public void PauseButton()
+    {
+        pauseBT.gameObject.SetActive(true);
+        StartCoroutine(wait());
+    }
+
+    public void ContinueBt()
+    {
+        Time.timeScale = 1; 
+        pauseBT.gameObject.SetActive(false);
+    }
+
+    public IEnumerator wait()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Time.timeScale = 0;
+    }
+
+    #endregion
+
+
 }

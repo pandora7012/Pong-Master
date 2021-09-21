@@ -28,8 +28,6 @@ public class Ball_Trajectory : MonoBehaviour
 
     private void OnHolding()
     {
-        if (!ball.holding)
-            return;
         for (int i = 0; i < 15; i++)
         {
             Vector2 position = ball.transform.position;

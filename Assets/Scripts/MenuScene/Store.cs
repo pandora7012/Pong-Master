@@ -22,7 +22,10 @@ public class Store : PopupAnimation
     [HideInInspector]
     public List<StoreElements> balls;
     public static int holdID;
-    private int state; 
+    private int state;
+
+    public Text crcoin;
+
     private void Start()
     {
         InitBallStore();
@@ -104,10 +107,15 @@ public class Store : PopupAnimation
 
     public void BuyButton()
     {
+        int ct = PlayerPrefs.GetInt("Coin");
         if (state == 1)
         {
-            if (PlayerPrefs.GetInt("Coin") >= data.balls[holdID - 1].cost && !data.balls[holdID - 1].hadBuy)
+            if (ct >= data.balls[holdID - 1].cost && !data.balls[holdID - 1].hadBuy)
+            {
                 data.balls[holdID - 1].hadBuy = true;
+                PlayerPrefs.SetInt("Coin", ct - data.balls[holdID - 1].cost);
+            }
+                
             else if (data.balls[holdID - 1].hadBuy)
             {
                 PlayerPrefs.SetInt("BallSkin", holdID);
@@ -116,13 +124,20 @@ public class Store : PopupAnimation
         else if (state == 2)
         {
             if (PlayerPrefs.GetInt("Coin") >= data.cups[holdID - 1].cost && !data.cups[holdID - 1].hadBuy)
+            {
                 data.cups[holdID - 1].hadBuy = true;
+                PlayerPrefs.SetInt("Coin", ct - data.cups[holdID - 1].cost);
+            }
+                
             else if (data.cups[holdID - 1].hadBuy)
                 PlayerPrefs.SetInt("CupSkin", holdID); 
         }
 
         else Debug.Log("Not enough noney");
         AudioManager.Instance.Play("Coin");
+
+        crcoin.text = PlayerPrefs.GetInt("Coin").ToString();
+
     }
 
     private void UIUpdate()

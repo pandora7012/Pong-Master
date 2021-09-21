@@ -10,5 +10,5 @@ public class LevelInfomacion : MonoBehaviour
     public Vector2 ballStartPos;
 
     public bool havePass = false;
-    public int star;
+    public bool star;
 }

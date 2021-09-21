@@ -14,8 +14,10 @@ public class MenuUIManager : MonoBehaviour
 
     [Header("RemainLevel")]
     public RectTransform rec;
-    public Text numText; 
+    public Text numText;
 
+
+    public RectTransform chapter; 
 
     private void Start()
     {
@@ -26,7 +28,7 @@ public class MenuUIManager : MonoBehaviour
 
     public void PlayButton()
     {
-        PlayerPrefs.SetInt("MaxLevel", 2);
+        PlayerPrefs.SetInt("MaxLevel", 1);
         AudioManager.Instance.Play("Click");
         GameManager.Instance.level = PlayerPrefs.GetInt("MaxLevel");
         PlayBT.transform.DOScale(Vector3.zero, 1f).SetEase(Ease.InBack);
@@ -47,5 +49,11 @@ public class MenuUIManager : MonoBehaviour
         int cp = 5;
         numText.text = "Level: " + cL.ToString() + "/" + cp.ToString();
         rec.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal , 40 + cL / cp * 195);
+    }
+
+    public void ChapterButton()
+    {
+        chapter.gameObject.SetActive(true);
+        Main.gameObject.SetActive(false);
     }
 }
