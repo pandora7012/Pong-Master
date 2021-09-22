@@ -57,13 +57,13 @@
     <Compile Include="Assets\Scripts\PlayScene\PauseGame.cs" />
     <Compile Include="Assets\Scripts\MenuScene\LevelButton.cs" />
     <Compile Include="Assets\Scripts\PlayScene\BallCounter.cs" />
-    <Compile Include="Assets\Scripts\PlayScene\Ball.cs" />
+    <Compile Include="Assets\Scripts\PlayScene\Entities\Ball.cs" />
     <Compile Include="Assets\Scripts\MenuScene\MenuUIManager.cs" />
     <Compile Include="Assets\Scripts\PopupAnimation.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PlayScene\Ball_Trajectory.cs" />
-    <Compile Include="Assets\Scripts\PlayScene\Star.cs" />
-    <Compile Include="Assets\Scripts\PlayScene\Cup.cs" />
+    <Compile Include="Assets\Scripts\PlayScene\Entities\Star.cs" />
+    <Compile Include="Assets\Scripts\PlayScene\Entities\Cup.cs" />
     <Compile Include="Assets\Scripts\PlayScene\LoseGame.cs" />
     <Compile Include="Assets\Scripts\MenuScene\Store.cs" />
     <Compile Include="Assets\Scripts\MenuScene\ChapterSystem.cs" />
@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\MenuScene\StoreData.cs" />
     <Compile Include="Assets\Scripts\PlayScene\LevelInfomacion.cs" />
     <Compile Include="Assets\Scripts\GameMaster.cs" />
+    <Compile Include="Assets\Scripts\PlayScene\Entities\Portal.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -47,6 +47,6 @@ public class LevelButton : MonoBehaviour
         if (leve > PlayerPrefs.GetInt("MaxLevel"))
             return;
         GameManager.Instance.level = leve;
-        GameManager.Instance.LoadLevel();
+        GameManager.Instance.SceneLoading("PlayScene", 0.5f);
     }
 }
