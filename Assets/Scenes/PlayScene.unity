@@ -509,7 +509,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 261882158}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1929812840}
+        m_TargetAssemblyTypeName: PlayUImanager, Assembly-CSharp
+        m_MethodName: Home
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &261882158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,6 +651,7 @@ GameObject:
   - component: {fileID: 275281588}
   - component: {fileID: 275281587}
   - component: {fileID: 275281589}
+  - component: {fileID: 275281590}
   m_Layer: 5
   m_Name: PausePopup
   m_TagString: Untagged
@@ -723,6 +736,24 @@ MonoBehaviour:
   bgSound: {fileID: 704577342}
   VFX: {fileID: 1219946173}
   Home: {fileID: 1284296811}
+--- !u!114 &275281590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275281585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abc3a266576398429eab6652ef686fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicOn: {fileID: 21300000, guid: 611d7fd6ae7c36748a611ccec0e67337, type: 3}
+  musicOff: {fileID: 21300000, guid: ee0511ee67ffab7479af34ecceaf382e, type: 3}
+  VFSOn: {fileID: 21300000, guid: 09f1feadafb727b4eb154b9ca62349d6, type: 3}
+  VFSOff: {fileID: 21300000, guid: 18323132fd7955940b0b2e2fc707188d, type: 3}
+  music: {fileID: 117714317}
+  vfx: {fileID: 794596858}
 --- !u!1 &399107103
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,7 +900,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1261,7 +1292,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 704577344}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 275281590}
+        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+        m_MethodName: MusicOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &704577344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1611,7 +1654,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 863433575}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1929812840}
+        m_TargetAssemblyTypeName: PlayUImanager, Assembly-CSharp
+        m_MethodName: ContinueBt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &863433575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2230,7 +2285,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1219946175}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 275281590}
+        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+        m_MethodName: VFXOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1219946175
 MonoBehaviour:
   m_ObjectHideFlags: 0

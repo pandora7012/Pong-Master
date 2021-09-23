@@ -21,4 +21,9 @@ public class PauseGame : MonoBehaviour
             .Append(Home.transform.DOLocalMove(new Vector2(-0, -400), 0.25f))
             .Append(VFX.transform.DOLocalMove(new Vector2(400, 0), 0.25f));
     }
+
+    public void GoPlay()
+    {
+        gameObject.SetActive(true);
+    }
 }

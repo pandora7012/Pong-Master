@@ -16,7 +16,8 @@ public class AudioManager : Singleton<AudioManager>
             s.audioSource.clip = s.audioClip;
             s.audioSource.loop = s.loop;
         }
-        Play("Background");
+        if (PlayerPrefs.GetInt("Music")  == 1)
+            Play("Background");
     }
 
     public void Play( string name)
@@ -28,6 +29,16 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
 
+    public void PlayVfx(string name)
+    {
+        if (PlayerPrefs.GetInt("Vfx") == 0)
+            return;
+        foreach (Sound s in sounds)
+        {
+            if (s.name == name)
+                s.audioSource.Play();
+        }
+    }
     public void Stop(string name)
     {
         foreach (Sound s in sounds)

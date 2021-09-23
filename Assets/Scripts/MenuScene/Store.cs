@@ -82,7 +82,6 @@ public class Store : PopupAnimation
         }
     }
 
-    
     public void BallButton()
     {
         ballView.gameObject.SetActive(true);
@@ -91,7 +90,7 @@ public class Store : PopupAnimation
         cupBT.color = Color.white;
         holdID = PlayerPrefs.GetInt("BallSkin");
         state = 1;
-        AudioManager.Instance.Play("Click");
+        AudioManager.Instance.PlayVfx("Click");
     }
 
     public void CupButton()
@@ -102,7 +101,7 @@ public class Store : PopupAnimation
         cupBT.color = Color.cyan;
         holdID = PlayerPrefs.GetInt("CupSkin");
         state = 2;
-        AudioManager.Instance.Play("Click");
+        AudioManager.Instance.PlayVfx("Click");
     }
 
     public void BuyButton()
@@ -134,7 +133,7 @@ public class Store : PopupAnimation
         }
 
         else Debug.Log("Not enough noney");
-        AudioManager.Instance.Play("Coin");
+        AudioManager.Instance.PlayVfx("Coin");
 
         crcoin.text = PlayerPrefs.GetInt("Coin").ToString();
 

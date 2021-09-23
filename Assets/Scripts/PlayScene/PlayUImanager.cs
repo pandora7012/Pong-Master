@@ -32,10 +32,10 @@ public class PlayUImanager : MonoBehaviour
 
     [Header("Lose")]
     public RectTransform LosePopup;
-
     public RectTransform pauseBT; 
-
     private bool musicPlay; 
+
+    
 
 
     void Awake()
@@ -87,7 +87,7 @@ public class PlayUImanager : MonoBehaviour
             if (!musicPlay)
             {
                 musicPlay = true;
-                AudioManager.Instance.Play("Win");
+                AudioManager.Instance.PlayVfx("Win");
             }
             Textlevel.text = "Level " + GameManager.Instance.level.ToString();
             StarHandle();
@@ -105,13 +105,13 @@ public class PlayUImanager : MonoBehaviour
         Destroy(GameManager.Instance.currentLevel);
         SceneManager.LoadScene("PlayScene");
         PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") + 20);
-        AudioManager.Instance.Play("Click");
+        AudioManager.Instance.PlayVfx("Click");
       //  AudioManager.Instance.Play("Background");
     }
 
     public void Home()
     {
-        AudioManager.Instance.Play("Click");
+        AudioManager.Instance.PlayVfx("Click");
         Destroy(GameManager.Instance.currentLevel);
         GameManager.Instance.ResetPolling(); 
         SceneManager.LoadScene("MainMenu");
@@ -125,7 +125,7 @@ public class PlayUImanager : MonoBehaviour
         
         while (coin < temp)
         {
-            AudioManager.Instance.Play("Coin");
+            AudioManager.Instance.PlayVfx("Coin");
             coin += Time.deltaTime *30 ;
             currentCoin.text = ((int)coin).ToString();
             yield return null;
@@ -152,7 +152,7 @@ public class PlayUImanager : MonoBehaviour
         if (!musicPlay)
         {
             musicPlay = true;
-            AudioManager.Instance.Play("Lose");
+            AudioManager.Instance.PlayVfx("Lose");
             LosePopup.gameObject.SetActive(true);
         }
     }
@@ -181,7 +181,7 @@ public class PlayUImanager : MonoBehaviour
     {
         Destroy(GameManager.Instance.currentLevel);
         SceneManager.LoadScene("PlayScene");
-        AudioManager.Instance.Play("Click");
+        AudioManager.Instance.PlayVfx("Click");
     }
 
 
@@ -205,6 +205,8 @@ public class PlayUImanager : MonoBehaviour
     }
 
     #endregion
+
+ 
 
 
 }

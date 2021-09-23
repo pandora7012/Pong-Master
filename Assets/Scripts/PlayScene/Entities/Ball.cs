@@ -72,10 +72,10 @@ public class Ball : MonoBehaviour
             Trajectory.SetActive(false);
             GameMaster.Lose?.Invoke();
             CaculateDirection();
-            if (direction.x < 0.3 && direction.y < 0.3)
+            /*if (direction.x < 0.3 && direction.y < 0.3)
             {
                 return;
-            }
+            }*/
             played = true;
             setDynamic();
             // Debug.Log(direction);
@@ -108,8 +108,8 @@ public class Ball : MonoBehaviour
     {
         if (collision.tag == "PassArea" && !hadCollide)
         {
-            AudioManager.Instance.Play("BallColl");
-            collision.transform.parent.transform.DOScale(Vector3.zero,1f).SetEase(Ease.InOutBack);
+            AudioManager.Instance.PlayVfx("BallColl");
+            collision.transform.parent.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InOutBack);
             Destroy(collision);
             transform.DOScale(Vector3.zero, 0.5f);
             GameManager.Instance.numOfTarget--;
@@ -120,11 +120,20 @@ public class Ball : MonoBehaviour
 
         if (collision.tag == ("DmgArea"))
         {
-            Debug.Log("Defjiaf");
-            transform.DOScale(Vector2.zero, 0.5f).OnComplete(() =>
+           
+            transform.DOScale(Vector2.zero, 0.25f).OnComplete(() =>
             {
                 ResetBall();
             });
+        }
+        if (collision.tag == "Star" && !hadCollide)
+        {
+            AudioManager.Instance.PlayVfx("BallColl");
+            collision.transform.parent.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InOutBack);
+            Destroy(collision);
+            GameManager.Instance.numOfTarget--;
+            GameMaster.NewTaskComplete?.Invoke();
+            GameMaster.Win?.Invoke();
         }
     }
 

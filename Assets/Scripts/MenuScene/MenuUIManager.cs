@@ -16,6 +16,7 @@ public class MenuUIManager : MonoBehaviour
     public RectTransform rec;
     public Text numText;
 
+    public RectTransform setting;
 
     public RectTransform chapter; 
 
@@ -28,8 +29,7 @@ public class MenuUIManager : MonoBehaviour
 
     public void PlayButton()
     {
-       // PlayerPrefs.SetInt("MaxLevel", 1);
-        AudioManager.Instance.Play("Click");
+        AudioManager.Instance.PlayVfx("Click");
         GameManager.Instance.level = PlayerPrefs.GetInt("MaxLevel");
         PlayBT.transform.DOScale(Vector3.zero, 1f).SetEase(Ease.InBack);
         GameManager.Instance.SceneLoading("PlayScene", 1f);
@@ -39,7 +39,7 @@ public class MenuUIManager : MonoBehaviour
     public void StoreButton()
     {
         storePopup.onOpen();
-        AudioManager.Instance.Play("Click");
+        AudioManager.Instance.PlayVfx("Click");
         // Main.gameObject.SetActive(false);
     }
 
@@ -56,5 +56,10 @@ public class MenuUIManager : MonoBehaviour
         chapter.gameObject.SetActive(true);
         Main.gameObject.SetActive(false);
         
+    }
+
+    public void SettingButton()
+    {
+        setting.gameObject.SetActive(true);
     }
 }
