@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 151598211136472345}
   - component: {fileID: 151598211136472350}
+  - component: {fileID: 1368099720501248704}
   m_Layer: 0
   m_Name: PassArea
   m_TagString: PassArea
@@ -57,6 +58,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19951922, y: 0.14094737}
   m_EdgeRadius: 0
+--- !u!114 &1368099720501248704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151598211136472344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d4f097acd23a1741b3866b9906c89b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 151598212419426707}
+  niceText: []
+  particle: {fileID: 0}
 --- !u!1 &151598211148804268
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,7 +84,6 @@ GameObject:
   - component: {fileID: 151598211148804269}
   - component: {fileID: 151598211148804258}
   - component: {fileID: 151598211148804259}
-  - component: {fileID: 3602413347067224098}
   m_Layer: 0
   m_Name: Cup
   m_TagString: Untagged
@@ -138,27 +153,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &3602413347067224098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151598211148804268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d4f097acd23a1741b3866b9906c89b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 151598212419426707}
-  niceText:
-  - {fileID: 21300000, guid: 7bbb06b2d3c7a46428f556db099198b4, type: 3}
-  - {fileID: 21300000, guid: 47f185525a33f0f4dae90bf4a2244f8a, type: 3}
-  - {fileID: 21300000, guid: 20199cb4e1539e344b4f7acd8c91bfee, type: 3}
-  - {fileID: 21300000, guid: 94517455e50ffac408ec37d117b1dd2b, type: 3}
-  - {fileID: 21300000, guid: bb17d05805808534a9b3ce0bd3b8b5c7, type: 3}
-  - {fileID: 21300000, guid: 7dfe550df5ea926439a056ae3da0eb83, type: 3}
-  - {fileID: 21300000, guid: 10403caede3ae0644b519bced55a0061, type: 3}
 --- !u!1 &151598212419426717
 GameObject:
   m_ObjectHideFlags: 0

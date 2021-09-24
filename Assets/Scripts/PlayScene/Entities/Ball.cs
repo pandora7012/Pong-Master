@@ -1,5 +1,6 @@
 using UnityEngine;
-using DG.Tweening; 
+using DG.Tweening;
+using UnityEngine.EventSystems;
 
 public class Ball : MonoBehaviour
 {
@@ -52,9 +53,10 @@ public class Ball : MonoBehaviour
 
     private void InputInfo()
     {
-        if (Input.GetMouseButtonDown(0) && !played)
+        if (GameManager.Instance.stop == true || EventSystem.current.IsPointerOverGameObject(0))
+            return;
+        if (Input.GetMouseButtonDown(0) && !played )
         {
-            
             if (GameManager.Instance.numOfTarget == 0)
                 return;
             //handle touch ball ;

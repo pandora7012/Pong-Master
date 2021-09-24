@@ -189,12 +189,14 @@ public class PlayUImanager : MonoBehaviour
     public void PauseButton()
     {
         pauseBT.gameObject.SetActive(true);
+        GameManager.Instance.stop = true; 
         StartCoroutine(wait());
     }
 
     public void ContinueBt()
     {
-        Time.timeScale = 1; 
+        Time.timeScale = 1;
+        GameManager.Instance.stop = false;
         pauseBT.gameObject.SetActive(false);
     }
 

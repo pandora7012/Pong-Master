@@ -13,7 +13,7 @@ public class LevelButton : MonoBehaviour
     public int leve;
 
     public Button button; 
-    private void Start()
+    private void Awake()
     {
         button.onClick.AddListener(OnClick);
     }

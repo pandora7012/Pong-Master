@@ -27,8 +27,11 @@ public class GameManager : Singleton<GameManager>
     [Header("Model")]
     public StoreData storedata;
 
+    public bool stop;
+
     protected override void Awake()
     {
+        stop = false; 
       //  PlayerPrefs.SetInt("MaxLevel", 1);
         base.Awake();
         BallPolling = new List<Ball>(); 
