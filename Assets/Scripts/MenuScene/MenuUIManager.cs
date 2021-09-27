@@ -16,6 +16,10 @@ public class MenuUIManager : MonoBehaviour
     public RectTransform rec;
     public Text numText;
 
+    [Header("Star")]
+    public RectTransform recS;
+    public Text numTextS; 
+
     public RectTransform setting;
 
     public RectTransform chapter; 
@@ -25,6 +29,7 @@ public class MenuUIManager : MonoBehaviour
         LevelText.text  = "Level " + PlayerPrefs.GetInt("MaxLevel").ToString();
         coinText.text = PlayerPrefs.GetInt("Coin").ToString();
         levelRemainHandle();
+        starRemainHandle();
     }
 
     public void PlayButton()
@@ -51,15 +56,24 @@ public class MenuUIManager : MonoBehaviour
         rec.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal , 40 + cL / cp * 195);
     }
 
+    public void starRemainHandle()
+    {
+        int cL = PlayerPrefs.GetInt("SumStar");
+        int cp = 72;
+        numTextS.text = "Star: " + cL.ToString() + "/" + cp.ToString();
+        recS.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 40 + cL / cp * 195);
+    }
+
     public void ChapterButton()
     {
         chapter.gameObject.SetActive(true);
         Main.gameObject.SetActive(false);
-        
+        AudioManager.Instance.PlayVfx("Click");
     }
 
     public void SettingButton()
     {
         setting.gameObject.SetActive(true);
+        AudioManager.Instance.PlayVfx("Click");
     }
 }

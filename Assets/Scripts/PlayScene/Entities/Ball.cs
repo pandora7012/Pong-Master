@@ -24,9 +24,11 @@ public class Ball : MonoBehaviour
 
     private bool hadCollide;
     [SerializeField]
-    private bool played; 
+    private bool played;
 
+    private int par = 0;
 
+    private bool pk = true;
 
     void Update()
     {
@@ -120,7 +122,7 @@ public class Ball : MonoBehaviour
             ResetBall();
         }
 
-        if (collision.tag == ("DmgArea"))
+        else if (collision.tag == ("DmgArea"))
         {
            
             transform.DOScale(Vector2.zero, 0.25f).OnComplete(() =>
@@ -128,7 +130,7 @@ public class Ball : MonoBehaviour
                 ResetBall();
             });
         }
-        if (collision.tag == "Star" && !hadCollide)
+        else if (collision.tag == "Star" && !hadCollide)
         {
             AudioManager.Instance.PlayVfx("BallColl");
             collision.transform.parent.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InOutBack);
@@ -139,4 +141,15 @@ public class Ball : MonoBehaviour
         }
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (pk == false)
+            return;
+        GameManager.Instance.particlePolling[par].transform.position = this.transform.position;
+        GameManager.Instance.particlePolling[par].Play();
+        par++;
+        par = par == 10 ? 0 : par;
+    }
+    
 }

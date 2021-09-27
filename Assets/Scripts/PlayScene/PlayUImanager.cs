@@ -160,6 +160,7 @@ public class PlayUImanager : MonoBehaviour
     #endregion
     private void StarHandle()
     {
+        int p = PlayerPrefs.GetInt("SumStar");
         int a = 3;
         if (1f * remain / firstNum <= 0.6)
         {
@@ -171,6 +172,7 @@ public class PlayUImanager : MonoBehaviour
             star2.sprite = star;
             a--;
         }
+        PlayerPrefs.SetInt("SumStar", p + a);
         string s = "Level" + GameManager.Instance.level.ToString();
 
         if (PlayerPrefs.GetInt(s) < a)

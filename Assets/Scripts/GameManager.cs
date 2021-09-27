@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    [HideInInspector]
     public  List<Ball> BallPolling;
+    [HideInInspector]
+    public List<ParticleSystem> particlePolling;
 
     [Header("Level Infomacion")]
     public int numOfBall;
@@ -18,6 +21,7 @@ public class GameManager : Singleton<GameManager>
 
     [Header("PoolingSystem")]
     public GameObject ballPrefabs;
+    public GameObject particle; 
 
     [Header("Sprite")]
     public Sprite ball;
@@ -68,9 +72,14 @@ public class GameManager : Singleton<GameManager>
         for (int i = 0; i < 10; i++)
         {
             Ball ball = Instantiate(ballPrefabs, transform).GetComponent<Ball>();
-           
             ball.gameObject. SetActive(false);
             BallPolling.Add(ball);
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            ParticleSystem par = Instantiate(particle, transform).GetComponent<ParticleSystem>();
+            particlePolling.Add(par);
         }
     }
 
@@ -96,7 +105,13 @@ public class GameManager : Singleton<GameManager>
 
     public void InitBall()
     {
-        numOfBall--;
-        BallPolling[numOfBall].gameObject.SetActive(true);
+        this.transform.DOScale(Vector2.one, 0.5f).OnComplete(() =>
+       {
+           numOfBall--;
+           BallPolling[numOfBall].gameObject.SetActive(true);
+       });
     }
+        
+
+    
 }

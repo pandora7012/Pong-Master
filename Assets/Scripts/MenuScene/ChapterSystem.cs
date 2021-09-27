@@ -75,6 +75,7 @@ public class ChapterSystem : MonoBehaviour
         ChapContent[1].gameObject.SetActive(true);
         previousBut.gameObject.SetActive(true);
         nextBt.gameObject.SetActive(false);
+        AudioManager.Instance.PlayVfx("Click");
     }
 
     public void previousButton()
@@ -83,6 +84,7 @@ public class ChapterSystem : MonoBehaviour
         ChapContent[1].gameObject.SetActive(false);
         previousBut.gameObject.SetActive(false);
         nextBt.gameObject.SetActive(true);
+        AudioManager.Instance.PlayVfx("Click");
     }
 
 
@@ -90,6 +92,7 @@ public class ChapterSystem : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         main.gameObject.SetActive(true);
+        AudioManager.Instance.PlayVfx("Click");
     }
 
     public void back()
@@ -101,6 +104,7 @@ public class ChapterSystem : MonoBehaviour
         nextBt.gameObject.SetActive(false);
         previousBut.gameObject.SetActive(false);
         backBT.gameObject.SetActive(false);
+        AudioManager.Instance.PlayVfx("Click");
     }
 
 }

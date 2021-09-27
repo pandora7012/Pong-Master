@@ -15,7 +15,6 @@ public class BootUIManager : MonoBehaviour
     void Start()
     {
         Loading.transform.DOLocalMoveX(0, 3).SetEase(Ease.InOutQuint);
-
         InitPlayerPref();
 
         Sequence sq = DOTween.Sequence();
